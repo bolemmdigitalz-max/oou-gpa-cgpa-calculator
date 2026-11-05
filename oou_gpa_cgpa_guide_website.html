@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101b32">
+<meta name="description" content="A practical OOU fresher's guide to understanding GPA, CGPA, grade points, credit units, and calculating academic performance.">
+<title>OOU GPA & CGPA Guide | Fresher's Academic Toolkit</title>
+<style>
+:root{
+  --navy:#101b32;--navy2:#1c2e50;--blue:#345de5;--blue2:#2448c8;
+  --ink:#172238;--muted:#68758b;--line:#e5eaf2;--paper:#fff;
+  --bg:#f5f7fb;--soft:#edf2ff;--green:#16845a;--amber:#986313;
+  --shadow:0 16px 45px rgba(20,35,65,.08);--radius:20px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:-.03em}
+.brand-mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:white;background:var(--navy);font-weight:900}
+.brand small{display:block;color:var(--muted);font-size:.68rem;font-weight:650;letter-spacing:.04em}
+.navlinks{display:flex;align-items:center;gap:22px;color:#4e5b71;font-size:.88rem;font-weight:700}
+.navlinks a:hover{color:var(--blue)}
+.menu-btn{display:none;border:1px solid var(--line);background:white;border-radius:10px;padding:8px 11px}
+.hero{background:radial-gradient(circle at 85% 20%,#405da2 0,transparent 30%),linear-gradient(125deg,#101b32,#20375f);color:white;padding:76px 0 70px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center}
+.eyebrow{font-size:.75rem;font-weight:850;letter-spacing:.15em;text-transform:uppercase;color:#b9c9ff}
+h1{font-size:clamp(2.5rem,6vw,4.6rem);line-height:1.04;letter-spacing:-.06em;margin:14px 0 18px;max-width:760px}
+.hero p{color:#d4def2;max-width:650px;font-size:1.06rem;margin:0}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:12px 18px;font-weight:800;transition:.18s}
+.btn-primary{background:var(--blue);color:white}.btn-primary:hover{background:var(--blue2);transform:translateY(-1px)}
+.btn-light{background:white;color:var(--navy)}.btn-light:hover{background:#edf2ff}
+.hero-card{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:25px;box-shadow:0 24px 60px #07132955}
+.hero-card-label{color:#c3d0ec;font-size:.8rem;font-weight:750}
+.hero-score{font-size:3.6rem;font-weight:900;letter-spacing:-.06em;margin:2px 0}
+.hero-score span{font-size:1rem;color:#c3d0ec;letter-spacing:0}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.hero-stat{padding:13px;background:#ffffff12;border-radius:13px}
+.hero-stat strong{display:block;font-size:1.2rem}.hero-stat small{color:#c3d0ec}
+main{padding:40px 0 80px}
+.section{margin:30px 0 54px}
+.section-head{max-width:720px;margin-bottom:22px}
+.kicker{font-size:.72rem;color:var(--blue);font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+h2{font-size:clamp(1.7rem,3vw,2.35rem);line-height:1.15;letter-spacing:-.045em;margin:7px 0 10px}
+h3{font-size:1.13rem;margin:0 0 8px;letter-spacing:-.02em}
+.lead{color:var(--muted);margin:0}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:23px;box-shadow:var(--shadow)}
+.card p{color:var(--muted);margin:7px 0 0}
+.term{font-size:.73rem;color:var(--blue);font-weight:900;text-transform:uppercase;letter-spacing:.12em}
+.big-word{font-size:1.35rem;font-weight:850;margin:5px 0}
+.formula{background:var(--navy);color:white;border-radius:16px;padding:20px 22px;margin:16px 0;font-weight:800;font-size:1.1rem;overflow-wrap:anywhere}
+.formula span{display:block;color:#b9c9ff;font-size:.77rem;font-weight:650;margin-top:5px}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:white}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+th{font-size:.76rem;color:#536078;text-transform:uppercase;letter-spacing:.07em;background:#f8faff}
+td{font-size:.92rem}tr:last-child td{border-bottom:0}
+.grade-pill{display:inline-block;border-radius:8px;padding:3px 9px;background:#edf2ff;color:#2848b5;font-weight:850}
+.note{border-left:4px solid var(--blue);padding:13px 16px;background:#edf2ff;border-radius:0 12px 12px 0;color:#35445f;margin:16px 0}
+.warning{border-left-color:#d69b34;background:#fff8e9}
+.steps{display:grid;gap:12px;counter-reset:step}
+.step{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start}
+.step-num{width:38px;height:38px;border-radius:12px;background:var(--soft);color:var(--blue);display:grid;place-items:center;font-weight:900}
+.step p{margin:4px 0 0;color:var(--muted)}
+.calculator{background:white;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow)}
+.calc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px}
+.calc-top p{margin:5px 0 0;color:var(--muted);font-size:.9rem}
+.target-select{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:white;color:var(--ink)}
+.course-list{display:grid;gap:9px}
+.course-row{display:grid;grid-template-columns:minmax(0,1fr) 125px 60px;gap:12px;align-items:center;padding:12px 13px;border:1px solid var(--line);border-radius:13px}
+.course-name{font-weight:850}.course-desc{font-size:.79rem;color:var(--muted)}
+.score-input,.sem-input{width:100%;border:1px solid #d9e0eb;border-radius:9px;padding:10px 11px;outline:none;background:white;color:var(--ink)}
+.score-input:focus,.sem-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #345de51c}
+.score-input.invalid{border-color:#c43e4e}
+.grade-result{text-align:right;font-weight:900}.grade-result small{display:block;color:var(--muted);font-size:.7rem}
+.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:17px}
+.metric{background:#f7f9fd;border:1px solid var(--line);border-radius:13px;padding:15px}
+.metric small{display:block;color:var(--muted);font-weight:700}
+.metric strong{font-size:1.65rem;letter-spacing:-.04em}
+.progress{height:8px;background:#e9edf5;border-radius:30px;overflow:hidden;margin-top:16px}
+.progress>div{height:100%;width:0;background:var(--blue);transition:width .2s}
+.progress-label{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:.78rem;margin-top:6px}
+.calc-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn-secondary{background:#edf0f6;color:#35425a}.btn-secondary:hover{background:#e2e7f0}
+.calc-foot{font-size:.8rem;color:var(--muted);margin:13px 0 0}
+.semester-row{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.semester-row:last-child{border-bottom:0}
+.semester-row label{font-weight:800}
+.semester-row small{display:block;color:var(--muted);font-weight:500}
+.example-total{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-weight:800}
+.habits{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.habit{display:flex;gap:12px;padding:15px;border:1px solid var(--line);border-radius:13px;background:white}
+.habit-num{color:var(--blue);font-weight:900}
+.habit p{margin:3px 0 0;color:var(--muted);font-size:.88rem}
+details{border:1px solid var(--line);border-radius:13px;padding:15px 17px;background:white}
+details+details{margin-top:9px}
+summary{font-weight:800;cursor:pointer}
+details p{color:var(--muted);margin:10px 0 0}
+footer{background:var(--navy);color:#d4def2;padding:35px 0}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+.footer-inner small{color:#aebbd4}
+@media(max-width:800px){.hero-grid{grid-template-columns:1fr}.hero-card{max-width:420px}.navlinks{display:none;position:absolute;top:72px;left:0;right:0;background:white;padding:18px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.menu-btn{display:block}.grid-3{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}}
+@media(max-width:560px){.wrap{width:min(100% - 22px,1120px)}.hero{padding:54px 0}.hero-card{padding:19px}.card,.calculator{padding:17px}.course-row{grid-template-columns:minmax(0,1fr) 105px 42px;gap:7px;padding:10px 8px}.course-desc{font-size:.72rem}.score-input{padding:9px 7px;font-size:.88rem}.metric-grid{grid-template-columns:1fr 1fr}.metric:last-child{grid-column:span 2}.calc-top{flex-direction:column}.semester-row{grid-template-columns:1fr 1fr}.semester-row label{grid-column:1/-1}.habits{grid-template-columns:1fr}.hero-stats{gap:8px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="#home"><span class="brand-mark">G</span><span>Fresher's Academic Toolkit<small>OOU GPA & CGPA GUIDE</small></span></a>
+    <nav class="navlinks" id="navLinks">
+      <a href="#basics">GPA & CGPA</a><a href="#grading">Grading</a><a href="#gpa-guide">How to calculate</a><a href="#calculator">GPA calculator</a><a href="#cgpa">CGPA calculator</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">A practical guide for OOU freshers</div>
+      <h1>Understand your GPA. Take control of your CGPA.</h1>
+      <p>Learn what grades, grade points, quality points and credit units mean. Follow clear examples, then calculate your semester GPA and cumulative CGPA with the interactive calculators.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#calculator">Calculate my GPA →</a>
+        <a class="btn btn-light" href="#basics">Start learning</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-label">THE KEY GPA FORMULA</div>
+      <div class="hero-score">ΣQP <span>÷ ΣCU</span></div>
+      <p>Quality points divided by credit units. Your courses do not all carry the same weight.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>5.00</strong><small>Maximum GPA in this guide</small></div>
+        <div class="hero-stat"><strong>19 units</strong><small>Your listed courses, excluding STA121</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="section" id="basics">
+    <div class="section-head"><div class="kicker">01 · The foundations</div><h2>What are GPA and CGPA?</h2><p class="lead">They both describe academic performance, but they cover different periods of your university journey.</p></div>
+    <div class="grid-2">
+      <article class="card"><div class="term">One semester</div><div class="big-word">GPA — Grade Point Average</div><p>GPA measures your academic performance in a particular semester, taking the credit units of your courses into account.</p></article>
+      <article class="card"><div class="term">Across semesters</div><div class="big-word">CGPA — Cumulative Grade Point Average</div><p>CGPA measures your overall academic performance across all completed semesters.</p></article>
+    </div>
+    <div class="note"><strong>Think of it this way:</strong> Your first-semester GPA tells you how you performed in that semester. After another semester, your CGPA reflects your performance across both semesters, weighted by credit units.</div>
+    <div class="grid-3">
+      <article class="card"><h3>Credit units</h3><p>The numerical weight assigned to a course.</p></article>
+      <article class="card"><h3>Grade point</h3><p>The numerical value assigned to the grade earned.</p></article>
+      <article class="card"><h3>Quality points</h3><p>Credit units multiplied by the course grade point.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="grading">
+    <div class="section-head"><div class="kicker">02 · The grading system</div><h2>How grades become grade points</h2><p class="lead">The PDF guide uses the following five-point grading scale.</p></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Score (%)</th><th>Letter grade</th><th>Grade point</th></tr></thead>
+      <tbody>
+        <tr><td>70–100</td><td><span class="grade-pill">A</span></td><td>5</td></tr>
+        <tr><td>60–69</td><td><span class="grade-pill">B</span></td><td>4</td></tr>
+        <tr><td>50–59</td><td><span class="grade-pill">C</span></td><td>3</td></tr>
+        <tr><td>45–49</td><td><span class="grade-pill">D</span></td><td>2</td></tr>
+        <tr><td>40–44</td><td><span class="grade-pill">E</span></td><td>1</td></tr>
+        <tr><td>0–39</td><td><span class="grade-pill">F</span></td><td>0</td></tr>
+      </tbody>
+    </table></div>
+    <div class="note warning"><strong>Important:</strong> The grading scale can vary by institution or programme. Confirm the official rules that apply to your programme. Also, a letter such as C or E beside a course in a registration table may describe the course category, not the examination grade you earned.</div>
+  </section>
+
+  <section class="section" id="gpa-guide">
+    <div class="section-head"><div class="kicker">03 · Semester calculation</div><h2>How to calculate your GPA</h2><p class="lead">You need each course's credit units, the grade point you earned, and the total credit units for the semester.</p></div>
+    <div class="formula">GPA = Total Quality Points ÷ Total Credit Units<span>Quality Points = Course Credit Units × Grade Point</span></div>
+    <div class="card">
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div><h3>Multiply each course's credit units by its grade point.</h3><p>For example, 3 credit units × 5 grade points = 15 quality points.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div><h3>Add the quality points from all courses.</h3><p>For example: 15 + 12 + 10 + 8 + 3 = 48.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3>Add all course credit units.</h3><p>For example: 3 + 3 + 2 + 2 + 1 = 11.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div><h3>Divide total quality points by total credit units.</h3><p>48 ÷ 11 = 4.36.</p></div></div>
+      </div>
+    </div>
+    <h3 style="margin:22px 0 12px">Worked GPA example from the guide</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Course</th><th>Units</th><th>Grade</th><th>Grade point</th><th>Quality points</th></tr></thead>
+      <tbody>
+        <tr><td>Anatomy</td><td>3</td><td>A</td><td>5</td><td>15</td></tr>
+        <tr><td>Physiology</td><td>3</td><td>B</td><td>4</td><td>12</td></tr>
+        <tr><td>Chemistry</td><td>2</td><td>A</td><td>5</td><td>10</td></tr>
+        <tr><td>Biology</td><td>2</td><td>B</td><td>4</td><td>8</td></tr>
+        <tr><td>GST</td><td>1</td><td>C</td><td>3</td><td>3</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>11</strong></td><td>—</td><td>—</td><td><strong>48</strong></td></tr>
+      </tbody>
+    </table></div>
+    <div class="formula">GPA = 48 ÷ 11 = 4.36 / 5.00</div>
+    <p class="lead">Courses with more credit units generally have a greater influence on your GPA because they contribute more to the total quality points.</p>
+  </section>
+
+  <section class="section" id="calculator">
+    <div class="section-head"><div class="kicker">04 · Interactive tool</div><h2>Your OOU first-semester GPA calculator</h2><p class="lead">This version uses the nine courses in the course list you shared, with STA121 excluded and both two-unit Computer Science electives included.</p></div>
+    <div class="calculator">
+      <div class="calc-top">
+        <div><h3>Enter your examination scores</h3><p>Enter a score from 0 to 100 for each course. Leave unknown scores blank.</p></div>
+        <label for="targetGpa"><strong>Target GPA</strong><br><select class="target-select" id="targetGpa"><option value="4">4.00 / 5.00</option><option value="4.5" selected>4.50 / 5.00</option><option value="5">5.00 / 5.00</option></select></label>
+      </div>
+      <div class="course-list" id="courseList"></div>
+      <div class="metric-grid">
+        <div class="metric"><small>Current GPA</small><strong id="gpaValue">—</strong></div>
+        <div class="metric"><small>Quality points</small><strong id="qpValue">0</strong></div>
+        <div class="metric"><small>Courses entered</small><strong id="enteredValue">0/9</strong></div>
+      </div>
+      <div class="progress"><div id="gpaProgress"></div></div>
+      <div class="progress-label"><span id="progressText">0 of 9 courses entered</span><span>19 total registered units</span></div>
+      <p class="calc-foot" id="targetText">Your target GPA is 4.50.</p>
+      <div class="calc-actions"><button class="btn btn-primary" id="calcGpaBtn">Calculate GPA</button><button class="btn btn-secondary" id="resetGpaBtn">Reset scores</button></div>
+      <p class="calc-foot">While some courses are blank, the displayed GPA is based only on the courses entered. Your complete semester GPA is available when all nine scores are entered.</p>
+    </div>
+    <div class="note"><strong>Your listed course units:</strong> GST111 (2), COS101 (3), MTH101 (2), PHY101 (2), PHY107 (1), STA111 (3), OOU-GES151 (2), OOU-CSC103 (2), OOU-CSC105 (2) = <strong>19 units</strong>. This assumes these are all your registered courses for the semester.</div>
+  </section>
+
+  <section class="section" id="cgpa">
+    <div class="section-head"><div class="kicker">05 · Cumulative calculation</div><h2>How to calculate your CGPA</h2><p class="lead">CGPA combines the quality points and credit units from all completed semesters.</p></div>
+    <div class="formula">CGPA = Total Quality Points ÷ Total Credit Units<span>When using semester GPAs: CGPA = Σ (Semester GPA × Semester Credit Units) ÷ Σ Semester Credit Units</span></div>
+    <div class="grid-2">
+      <div class="card"><h3>Worked example</h3><div class="table-wrap" style="margin-top:12px"><table style="min-width:390px"><thead><tr><th>Semester</th><th>Quality points</th><th>Units</th></tr></thead><tbody><tr><td>First</td><td>48</td><td>11</td></tr><tr><td>Second</td><td>60</td><td>14</td></tr><tr><td><strong>Total</strong></td><td><strong>108</strong></td><td><strong>25</strong></td></tr></tbody></table></div><p>Total quality points = 48 + 60 = 108. Total credit units = 11 + 14 = 25.</p><div class="formula">CGPA = 108 ÷ 25 = 4.32</div></div>
+      <div class="card"><h3>Try the CGPA calculator</h3><p>Enter each completed semester's GPA and total credit units. You can leave unused semester rows blank.</p><div id="semesterInputs"></div><div class="example-total"><span>Total weighted points</span><span id="weightedTotal">0.00</span></div><div class="example-total"><span>Total credit units</span><span id="unitTotal">0</span></div><div class="formula" style="margin-bottom:0">Your CGPA: <span id="cgpaResult" style="display:inline;color:#b9c9ff;font-size:1.1rem">— / 5.00</span></div><div class="calc-actions"><button class="btn btn-secondary" id="resetCgpaBtn">Reset semesters</button></div></div>
+    </div>
+    <div class="note warning"><strong>A common mistake:</strong> Do not automatically add semester GPAs and divide by the number of semesters. That simple average can be wrong when semesters have different total credit units. Always use the weighted calculation.</div>
+    <div class="card"><h3>Another weighted CGPA example</h3><p>Semester 1: GPA 4.00 with 20 units. Semester 2: GPA 5.00 with 10 units.</p><div class="formula">(4.00 × 20) + (5.00 × 10) = 130<br>130 ÷ (20 + 10) = 4.33 / 5.00</div><p>The semesters do not have equal weight because they have different credit units.</p></div>
+  </section>
+
+  <section class="section" id="improve">
+    <div class="section-head"><div class="kicker">06 · Building good habits</div><h2>Your academic journey is not over</h2><p class="lead">A low GPA does not automatically mean your academic journey is over. Your CGPA can improve when you perform better in subsequent semesters, although the extent depends on previous results and the credit units you take.</p></div>
+    <div class="habits">
+      <div class="habit"><div class="habit-num">01</div><div><h3>Know your credit units</h3><p>Understand which courses carry more weight.</p></div></div>
+      <div class="habit"><div class="habit-num">02</div><div><h3>Attend lectures consistently</h3><p>Avoid creating unnecessary gaps in your understanding.</p></div></div>
+      <div class="habit"><div class="habit-num">03</div><div><h3>Study throughout the semester</h3><p>Do not rely entirely on last-minute preparation.</p></div></div>
+      <div class="habit"><div class="habit-num">04</div><div><h3>Practise relevant past questions</h3><p>Use them to identify areas that need improvement.</p></div></div>
+      <div class="habit"><div class="habit-num">05</div><div><h3>Track your results</h3><p>Calculate your GPA after every semester and monitor your progress.</p></div></div>
+      <div class="habit"><div class="habit-num">06</div><div><h3>Seek help early</h3><p>Ask questions when you struggle with a topic.</p></div></div>
+      <div class="habit"><div class="habit-num">07</div><div><h3>Set realistic academic goals</h3><p>Review your progress regularly and adjust your study habits when necessary.</p></div></div>
+    </div>
+    <div class="note">Your GPA is a measure of academic performance. Use it as information that helps you make better decisions, not as the only measure of your worth or potential.</div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="section-head"><div class="kicker">07 · Quick answers</div><h2>Frequently asked questions</h2></div>
+    <details><summary>Why do credit units matter?</summary><p>Credit units are the weight assigned to each course. A course with more units contributes more to total quality points and therefore has more influence on GPA.</p></details>
+    <details><summary>What is a quality point?</summary><p>It is the course's credit units multiplied by the grade point earned. For example, 3 units with an A worth 5 points gives 15 quality points.</p></details>
+    <details><summary>Can my CGPA improve next semester?</summary><p>Yes. Better performance in later semesters can improve your cumulative result. The amount of change depends on your previous results and the credit units in each semester.</p></details>
+    <details><summary>Is the GPA calculator an official OOU result system?</summary><p>No. It is a personal learning and estimation tool based on the grading scale and course units in the materials supplied. Use your official OOU result and programme rules for final confirmation.</p></details>
+  </section>
+</main>
+<footer><div class="wrap footer-inner"><div><strong>Fresher's Academic Toolkit</strong><br><small>Understand the numbers. Make informed academic decisions.</small></div><small>Educational calculator · Verify official institutional rules</small></div></footer>
+
+<script>
+const courses=[
+  {code:"GST111",name:"Communication in English",units:2},
+  {code:"COS101",name:"Introduction to Computing Sciences",units:3},
+  {code:"MTH101",name:"Elementary Mathematics I",units:2},
+  {code:"PHY101",name:"General Physics I",units:2},
+  {code:"PHY107",name:"General Practical Physics I",units:1},
+  {code:"STA111",name:"Descriptive Statistics",units:3},
+  {code:"OOU-GES151",name:"Modern Agriculture and Rural Development",units:2},
+  {code:"OOU-CSC103",name:"AI Literacy for Computer Scientists",units:2},
+  {code:"OOU-CSC105",name:"Digital Citizenship & Cyber Hygiene",units:2}
+];
+const $=id=>document.getElementById(id);
+function grade(score){
+  if(score>=70)return {letter:"A",point:5};
+  if(score>=60)return {letter:"B",point:4};
+  if(score>=50)return {letter:"C",point:3};
+  if(score>=45)return {letter:"D",point:2};
+  if(score>=40)return {letter:"E",point:1};
+  return {letter:"F",point:0};
+}
+function buildCourseInputs(){
+  const list=$("courseList");
+  courses.forEach((c,i)=>{
+    const row=document.createElement("div");row.className="course-row";
+    row.innerHTML=`<div><div class="course-name">${c.code}</div><div class="course-desc">${c.name} · ${c.units} units</div></div><input class="score-input" type="number" min="0" max="100" step="1" inputmode="numeric" placeholder="Score /100" aria-label="${c.code} score" data-index="${i}"><div class="grade-result" id="grade-${i}">—<small>Grade</small></div>`;
+    list.appendChild(row);
+  });
+  list.addEventListener("input",e=>{
+    if(!e.target.matches(".score-input"))return;
+    const i=Number(e.target.dataset.index),raw=e.target.value.trim(),box=$(`grade-${i}`);
+    if(raw===""){e.target.classList.remove("invalid");box.innerHTML="—<small>Grade</small>";}
+    else if(!Number.isFinite(Number(raw))||Number(raw)<0||Number(raw)>100){e.target.classList.add("invalid");box.innerHTML="—<small>Invalid</small>";}
+    else{e.target.classList.remove("invalid");const g=grade(Number(raw));box.innerHTML=`${g.letter}<small>${g.point} pts</small>`;}
+    updateGpa();
+  });
+}
+function updateGpa(){
+  let units=0,qp=0,entered=0,invalid=false;
+  document.querySelectorAll(".score-input").forEach((input,i)=>{
+    const raw=input.value.trim();if(raw==="")return;
+    const score=Number(raw);if(!Number.isFinite(score)||score<0||score>100){invalid=true;return;}
+    const g=grade(score);units+=courses[i].units;qp+=courses[i].units*g.point;entered++;
+  });
+  const result=units?qp/units:null;
+  $("gpaValue").textContent=invalid?"Check":result===null?"—":result.toFixed(2);
+  $("qpValue").textContent=qp.toFixed(0);
+  $("enteredValue").textContent=`${entered}/9`;
+  $("gpaProgress").style.width=`${entered/9*100}%`;
+  $("progressText").textContent=`${entered} of 9 courses entered · ${units} credit units counted`;
+  const target=Number($("targetGpa").value);
+  $("targetText").textContent=invalid?"Correct scores so each is between 0 and 100.":!entered?`Your target GPA is ${target.toFixed(2)}.`:result>=target?`You are currently meeting your ${target.toFixed(2)} target across the courses entered.`:`You are currently below your ${target.toFixed(2)} target across the courses entered. Keep tracking the remaining courses.`;
+}
+$("calcGpaBtn").addEventListener("click",updateGpa);
+$("targetGpa").addEventListener("change",updateGpa);
+$("resetGpaBtn").addEventListener("click",()=>{
+  document.querySelectorAll(".score-input").forEach(x=>{x.value="";x.classList.remove("invalid");});
+  courses.forEach((_,i)=>$(`grade-${i}`).innerHTML="—<small>Grade</small>");
+  updateGpa();
+});
+function buildSemesterInputs(){
+  const host=$("semesterInputs");
+  for(let i=1;i<=4;i++){
+    const row=document.createElement("div");row.className="semester-row";
+    row.innerHTML=`<label>Semester ${i}<small>Enter GPA and total units</small></label><input class="sem-input" type="number" min="0" max="5" step="0.01" placeholder="GPA / 5" aria-label="Semester ${i} GPA"><input class="sem-input" type="number" min="1" step="1" placeholder="Credit units" aria-label="Semester ${i} credit units">`;
+    host.appendChild(row);
+  }
+  host.addEventListener("input",updateCgpa);
+}
+function updateCgpa(){
+  let weighted=0,units=0,invalid=false;
+  document.querySelectorAll(".semester-row").forEach(row=>{
+    const [g,u]=row.querySelectorAll("input"),gs=g.value.trim(),us=u.value.trim();
+    if(gs===""&&us==="")return;
+    if(gs===""||us===""||Number(gs)<0||Number(gs)>5||Number(us)<=0||!Number.isFinite(Number(gs))||!Number.isFinite(Number(us))){invalid=true;return;}
+    weighted+=Number(gs)*Number(us);units+=Number(us);
+  });
+  $("weightedTotal").textContent=weighted.toFixed(2);
+  $("unitTotal").textContent=units;
+  $("cgpaResult").textContent=invalid?"Check entries":units?(weighted/units).toFixed(2)+" / 5.00":"— / 5.00";
+}
+$("resetCgpaBtn").addEventListener("click",()=>{
+  document.querySelectorAll(".sem-input").forEach(x=>x.value="");
+  updateCgpa();
+});
+$("menuBtn").addEventListener("click",()=>$("navLinks").classList.toggle("open"));
+document.querySelectorAll("#navLinks a").forEach(a=>a.addEventListener("click",()=>$("navLinks").classList.remove("open")));
+buildCourseInputs();buildSemesterInputs();updateGpa();updateCgpa();
+</script>
+</body>
+</html>
